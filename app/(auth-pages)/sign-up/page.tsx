@@ -4,6 +4,7 @@ import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import GoogleAuthButton from "@/components/GoogleAuthButton";
 import { SmtpMessage } from "../smtp-message";
 
 export default async function Signup(props: {
@@ -45,6 +46,10 @@ export default async function Signup(props: {
           <FormMessage message={searchParams} />
         </div>
       </form>
+      <div className="flex flex-col items-center mt-4">
+        <div className="divider w-full">OR</div>
+        <GoogleAuthButton text="Sign up with Google" />
+      </div>
       <SmtpMessage />
     </>
   );
