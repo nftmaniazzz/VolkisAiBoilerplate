@@ -1,14 +1,15 @@
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "next-themes";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { geistSans } from "../lib/fonts";
+import { headers } from "next/headers";
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Get the current pathname
-  const headersList = await Headers();
+  // Get the current headers using Next.js helper
+  const headersList = await headers();
   const pathname = headersList.get("x-pathname") || "";
 
   const isDashboard = pathname.startsWith("/dashboard");
