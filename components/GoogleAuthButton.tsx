@@ -6,6 +6,7 @@
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
+import { GoogleIcon } from "./icons/google";
 
 export default function GoogleAuthButton({ text = "Continue with Google" }: { text?: string }) {
   const router = useRouter();
@@ -30,7 +31,12 @@ export default function GoogleAuthButton({ text = "Continue with Google" }: { te
   };
 
   return (
-    <Button onClick={handleGoogleSignIn} variant="outline">
+    <Button 
+      onClick={handleGoogleSignIn} 
+      variant="outline" 
+      className="w-full bg-white hover:bg-gray-50 text-black font-normal border border-gray-300"
+    >
+      <GoogleIcon className="mr-2 h-4 w-4" />
       {text}
     </Button>
   );
